@@ -296,10 +296,36 @@ footer { padding:45px 0 20px; } .footer-top { display:grid; grid-template-column
   border-radius: 999px;
   white-space: nowrap;
   flex-shrink: 0;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-right: auto;
   transition: opacity .2s, transform .15s;
 }
 .nav-gift:hover { opacity: .85; transform: translateY(-1px); }
 .nav-gift:focus-visible { outline: 2px solid var(--foreground); outline-offset: 3px; }
 @media (max-width: 760px) { .nav-gift { display: none; } }
+
+.listing-price { display:block; margin:-5px 0 12px; font:700 15px var(--font-display); }
+.listing-search { display:flex; align-items:center; gap:11px; min-height:48px; margin:0 0 16px; padding:0 14px; border:1px solid var(--border); border-radius:7px; background:var(--background); color:var(--muted-foreground); transition:border-color .2s, box-shadow .2s; }
+.listing-search:focus-within { border-color:var(--foreground); box-shadow:0 0 0 2px color-mix(in oklab,var(--foreground) 10%,transparent); }
+.listing-search>svg { flex-shrink:0; }
+.listing-search input { width:100%; min-width:0; height:46px; border:0; outline:0; background:transparent; color:var(--foreground); font:400 13px var(--font-sans); }
+.listing-search input::placeholder { color:var(--muted-foreground); opacity:.85; }
+.listing-search button { flex-shrink:0; }
+.listing-empty { padding:28px 0; color:var(--muted-foreground); font-size:13px; }
+.listing-options { display:grid; gap:6px; margin-top:12px; }
+.listing-option { display:flex; align-items:center; gap:6px; color:var(--muted-foreground); font-size:9px; line-height:1.4; }
+.listing-option svg { color:var(--foreground); }
+.listing-view { width:100%; margin-top:14px; font-size:11px; }
+.transaction-dialog { max-height:calc(100vh - 32px); overflow-y:auto; }
+.transaction-summary { display:grid; gap:12px; font-size:13px; line-height:1.6; }
+.transaction-summary p { margin:0; }
+.transaction-actions { display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; }
+.prototype-note { margin:0; padding:11px 13px; border:1px solid var(--border); border-radius:6px; color:var(--muted-foreground); font-size:11px; line-height:1.55; }
+.proposal-form { display:grid; gap:14px; }
+.proposal-form label { display:grid; gap:6px; font-size:12px; font-weight:600; }
+.proposal-form input { width:100%; min-height:40px; padding:9px 11px; border:1px solid var(--border); border-radius:6px; background:var(--background); color:var(--foreground); font:400 13px var(--font-sans); }
+.proposal-form input:focus-visible { outline:2px solid var(--primary); outline-offset:2px; }
+@media(max-width:760px) {
+  .transaction-actions { flex-direction:column-reverse; }
+  .transaction-actions button { width:100%; }
+}
