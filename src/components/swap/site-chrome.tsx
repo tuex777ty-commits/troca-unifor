@@ -86,6 +86,9 @@ export function SiteHeader({ onLogin, onChooseCategory }: SiteHeaderProps) {
             <a href="#como-funciona" onClick={() => setMenuOpen(false)}>
               Como funciona
             </a>
+            <Link to="/presente" className="mobile-menu-gift" onClick={() => setMenuOpen(false)}>
+              <Gift size={15} /> Assinaturas grátis
+            </Link>
           </nav>
         )}
       </header>
