@@ -12,6 +12,7 @@ import {
 } from "@/components/swap/landing-sections";
 import { filterListings, listings, type Listing } from "@/components/swap/data";
 import { InfoDialog } from "@/components/swap/info-dialog";
+import { LoginDialog } from "@/components/swap/login-dialog";
 import { ListingDialog } from "@/components/swap/listing-dialog";
 import { ListingsSection } from "@/components/swap/listings-section";
 import { SiteFooter, SiteHeader } from "@/components/swap/site-chrome";
@@ -43,6 +44,7 @@ function Index() {
   const [search, setSearch] = useState("");
   const [savedIds, setSavedIds] = useState<number[]>([]);
   const [info, setInfo] = useState<string | null>(null);
+  const [loginOpen, setLoginOpen] = useState(false);
   const [activeListing, setActiveListing] = useState<Listing | null>(null);
 
   useEffect(() => {
@@ -84,10 +86,7 @@ function Index() {
 
   return (
     <>
-      <SiteHeader
-        onLogin={() => setInfo("Entrar na comunidade")}
-        onChooseCategory={chooseCategory}
-      />
+      <SiteHeader onLogin={() => setLoginOpen(true)} onChooseCategory={chooseCategory} />
       <main>
         <HeroSection onChooseCategory={chooseCategory} />
         <Ticker />
@@ -111,6 +110,7 @@ function Index() {
       {activeListing && (
         <ListingDialog listing={activeListing} onClose={() => setActiveListing(null)} />
       )}
+      {loginOpen && <LoginDialog onClose={() => setLoginOpen(false)} />}
       {info && <InfoDialog title={info} onClose={() => setInfo(null)} />}
     </>
   );
